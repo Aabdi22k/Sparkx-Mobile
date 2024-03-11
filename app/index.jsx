@@ -1,22 +1,38 @@
-import React from "react";
-import { View, Text, Image, StyleSheet, Pressable, StatusBar } from "react-native";
+import React, { useEffect } from "react";
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  Pressable,
+  StatusBar,
+} from "react-native";
 import { router } from "expo-router";
 import { Comfortaa_600SemiBold, useFonts } from "@expo-google-fonts/comfortaa";
+import { useAuthContext } from "../context/AuthContext.jsx";
 
 const Splash = () => {
+  const { authUser } = useAuthContext();
+
+  useEffect(() => {
+    if (authUser) {
+      router.push("/conversations");
+    }
+  }, [authUser]);
+
   const [fontsLoaded] = useFonts({
     Comfortaa_600SemiBold,
   });
+
   if (!fontsLoaded) {
     return <Text>Loading...</Text>;
   }
   return (
-    
     <View style={styles.cont1}>
-      <StatusBar barStyle='auto' />
+      <StatusBar barStyle="auto" />
       <View style={styles.cont2}>
         <Image
-          source={require("./(media)/icon.png")}
+          source={require("../media/icon.png")}
           style={{ width: 60, height: 60 }}
         />
         <Text style={styles.comfortaa}>Sparkx</Text>
@@ -25,7 +41,7 @@ const Splash = () => {
         <Pressable
           style={styles.s}
           onPress={() => {
-            router.push("signup");
+            router.push("/signup");
           }}
         >
           <Text className="text-n2">Signup Here</Text>
@@ -33,7 +49,7 @@ const Splash = () => {
         <Pressable
           style={styles.l}
           onPress={() => {
-            router.push("login");
+            router.push("/login");
           }}
         >
           <Text className=" !text-n2 ">Login Here</Text>
@@ -54,7 +70,7 @@ const styles = StyleSheet.create({
   cont1: {
     display: "flex",
     flexDirection: "row",
-    backgroundColor: "#141718",
+    backgroundColor: "#000000",
     height: "100%",
     justifyContent: "center",
     alignItems: "center",
@@ -78,7 +94,7 @@ const styles = StyleSheet.create({
   },
   l: {
     width: "80%",
-    alignItems:'center',
+    alignItems: "center",
     borderRadius: 12,
     padding: 12,
     borderColor: "crimson",
@@ -87,7 +103,7 @@ const styles = StyleSheet.create({
   },
   s: {
     width: "80%",
-    alignItems:'center',
+    alignItems: "center",
     borderRadius: 12,
     backgroundColor: "crimson",
     overflow: "hidden",
