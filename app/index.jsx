@@ -44,7 +44,7 @@ const Splash = () => {
             router.push("/signup");
           }}
         >
-          <Text className="text-n2">Signup Here</Text>
+          <Text style={styles.ot}>Signup Here</Text>
         </Pressable>
         <Pressable
           style={styles.l}
@@ -52,7 +52,7 @@ const Splash = () => {
             router.push("/login");
           }}
         >
-          <Text className=" !text-n2 ">Login Here</Text>
+          <Text style={styles.ot}>Login Here</Text>
         </Pressable>
       </View>
     </View>
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
   cont3: {
     position: "absolute",
     gap: 24,
-    bottom: "15%",
+    bottom: "10%",
     width: "100%",
     alignItems: "center",
   },
@@ -112,6 +112,10 @@ const styles = StyleSheet.create({
     maxWidth: 400,
     padding: 12,
   },
+  ot: {
+    color: "#F3F5F7",
+    fontSize:16
+  }
 });
 
 export default Splash;
