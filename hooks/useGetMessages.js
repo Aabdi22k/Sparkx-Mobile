@@ -22,7 +22,7 @@ const useGetMessages = () => {
 
       try {
         const res = await fetch(
-          "https://sparkx-backend.onrender.com/messages/" + convoId,
+          "https://sparkx-backend-5gg2.onrender.com/messages/" + convoId,
           {
             method: "GET",
             headers: {

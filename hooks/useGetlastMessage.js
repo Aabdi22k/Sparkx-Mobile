@@ -17,7 +17,7 @@ const useGetLastMessage = () => {
 
     try {
       const res = await fetch(
-        "https://sparkx-backend.onrender.com/messages/" + user._id,
+        "https://sparkx-backend-5gg2.onrender.com/messages/" + user._id,
         {
           method: "GET",
           headers: {

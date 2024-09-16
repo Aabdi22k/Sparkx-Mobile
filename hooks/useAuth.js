@@ -6,7 +6,7 @@ import { router } from "expo-router";
 
 const getAuthUser = async (token, setAuthUser) => {
   try {
-    const res = await fetch("https://sparkx-backend.onrender.com/users", {
+    const res = await fetch("https://sparkx-backend-5gg2.onrender.com/users", {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -46,7 +46,7 @@ const useAuth = () => {
     setLoading(true);
     try {
       const res = await fetch(
-        "https://sparkx-backend.onrender.com/auth/signup",
+        "https://sparkx-backend-5gg2.onrender.com/auth/signup",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -81,7 +81,7 @@ const useAuth = () => {
     setLoading(true);
     try {
       const res = await fetch(
-        "https://sparkx-backend.onrender.com/auth/login",
+        "https://sparkx-backend-5gg2.onrender.com/auth/login",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
